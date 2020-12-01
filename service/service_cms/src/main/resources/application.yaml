@@ -1,0 +1,41 @@
+# 服务端口
+server:
+  port: 8004
+  # 服务名
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: service-cms
+  # mysql数据库连接
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/zxjy201006?serverTimezone=GMT
+    username: root
+    password: 123456
+  #返回json的全局时间格式
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  #配置mapper xml文件的路径
+
+  #mybatis日志
+  redis:
+    host: 47.92.221.53
+    port: 6379
+    database: 0
+    timeout: 1800000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
+
+mybatis-plus:
+  mapper-locations: classpath:com/zjy/educms/mapper/xml/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+

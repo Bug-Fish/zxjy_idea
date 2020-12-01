@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+
+spring:
+  application:
+    name: service-edu
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/zxjy201006?serverTimezone=GMT
+    username: root
+    password: 123456
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#logging:
+#  level:
+#    root: info
+
+
+mybatis-plus:
+  mapper-locations: classpath:com/zjy/eduservice/mapper/xml/*.xml
+feign:
+  hystrix:
+    enabled: true
